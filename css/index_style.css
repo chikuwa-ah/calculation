@@ -1,3 +1,24 @@
+body{
+    user-select: none;
+}
+
 .flex{
     display: flex;
+}
+
+.title{
+    display: inline-block;
+    padding: 20px;
+}
+.title h1{
+    margin: auto;
+}
+.start{
+    margin-top: 10px;
+    text-align: center;
+}
+.title h2{
+    display: inline-block;
+    padding: 10px;
+    border: 2px solid black;
 }
