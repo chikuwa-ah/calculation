@@ -7,9 +7,19 @@ const define = (name, value) => {
     });
 };
 
-const scoreProcess = () => {
-
-}
+const scoreProcess = (score, get, reset) => {
+    const outputScoreElement = scoreElement.children[1];
+    if (reset) {
+        outputScoreElement.textContent = '0';
+        return;
+    };
+    const nowScore = Number(outputScoreElement.textContent);
+    if (get) {
+        return nowScore;
+    };
+    const newScore = score + nowScore;
+    outputScoreElement.textContent = newScore;
+};
 
 const displayFormula = (number, operator) => {
     const outputNumber = number.map(e => e < 0 ? `( ${e} )` : String(e));
@@ -33,11 +43,7 @@ const keyInput = (answer) => {
             numAdd();
         };
         if (event.key === '0') {
-            if (negative && answerString.length >= 2) {
-                numAdd();
-            } else if (!negative && answerString.length >= 1) {
-                numAdd();
-            };
+            if (arrayOfAnswer.length >= 1) { numAdd() };
         };
 
         if (event.key === '-') {
@@ -63,35 +69,46 @@ const keyInput = (answer) => {
 };
 
 const answerCheck = (resArray, negative, answer) => {
-    let response = 0;
+    let response = 0, addScore;
     for (let i = 0; i < resArray.length; i++) {
         response += resArray[i] * (10 ** (resArray.length - i - 1));
     };
 
     response = negative ? response *= -1 : response;
+    if (response === answer.num) {
+        addScore = resArray.length * 5;
+        addScore *= negative ? 2 : 1;
+        addScore *= answer.operator + 1;
+    } else {
+        addScore = -20;
+    };
+    scoreProcess(addScore);
 
-    let judge = response == answer ? 'correct' : 'miss';
-    console.log(judge);
+    setTimeout(() => {
 
-    generateFormula();
+        generateFormula();
+    }, 500);
 };
 
 
 
 const findAnswer = (number, operator) => {
-    let answer;
+    let answer = {
+        num: 0,
+        operator: operator
+    };
     switch (operator) {
         case 0:
-            answer = number[0] + number[1];
+            answer.num = number[0] + number[1];
             break;
         case 1:
-            answer = number[0] - number[1];
+            answer.num = number[0] - number[1];
             break;
         case 2:
-            answer = number[0] * number[1];
+            answer.num = number[0] * number[1];
             break;
         case 3:
-            answer = number[0] / number[1];
+            answer.num = number[0] / number[1];
             break;
     };
     return answer;
@@ -141,6 +158,8 @@ const title = () => {
         setTimeout(() => {
             titleElement.style.display = 'none';
             mainElement.style.display = 'flex';
+            scoreElement.style.display = 'flex';
+            scoreProcess(null, false, true);
             generateFormula();
         }, 1500);
     }, { once: true });
@@ -149,6 +168,8 @@ const title = () => {
 window.addEventListener('DOMContentLoaded', () => {
     define('mainElement', document.getElementById('main'));
     define('titleElement', document.getElementById('title'));
+    define('scoreElement', document.getElementById('score'));
     mainElement.style.display = 'none';
+    scoreElement.style.display = 'none';
     title();
 });
