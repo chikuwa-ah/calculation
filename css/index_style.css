@@ -1,67 +1,67 @@
-body{
+body {
     font-family: monospace;
 }
-.flex{
+
+.flex {
     display: flex;
 }
 
-.origin{
+.origin {
     width: 700px;
     padding: 20px;
     font-size: 25px;
     border: solid;
 }
-.title h1{
+
+.title h1 {
     text-align: center;
     margin: auto;
 }
-.start{
+
+.start {
     margin-top: 10px;
     text-align: center;
     user-select: none;
 }
-.title h2{
+
+.title h2 {
     display: inline-block;
     padding: 10px;
     border: 3px solid black;
 }
 
-.main{
+.main {
     white-space: nowrap;
 }
-.answer{
+
+.answer {
     padding-left: 15px;
 }
 
-.score h2{
+.score h2, .timer h1 {
     padding-left: 10px;
 }
 
-.tap{
+.tap {
     user-select: none;
 }
-.number{
+
+.number, .function {
     margin: 20px;
     width: 700px;
     border: solid;
 }
-.number div{
+
+.number div {
     width: 100%;
     border: solid;
 }
-.number h2{
+
+.tap h2 {
     text-align: center;
 }
 
-.function div{
-    padding-left: 10px;
-    padding-right: 10px;
-    /* display: inline-block; */
-    width: fit-content;
-    border: solid;
-}
-.function{
-    margin: 20px;
-    width: fit-content;
+.function div {
+    width: 100%;
     border: solid;
 }
