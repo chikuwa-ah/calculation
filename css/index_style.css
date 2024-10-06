@@ -1,5 +1,6 @@
 body{
-    user-select: none;
+    font-family: monospace;
+    font-size: 25px;
 }
 
 .flex{
@@ -7,8 +8,9 @@ body{
 }
 
 .origin{
-    width: 500px;
+    width: 700px;
     padding: 20px;
+    border: solid;
 }
 .title h1{
     text-align: center;
@@ -17,9 +19,17 @@ body{
 .start{
     margin-top: 10px;
     text-align: center;
+    user-select: none;
 }
 .title h2{
     display: inline-block;
     padding: 10px;
     border: 2px solid black;
+}
+
+.main{
+    white-space: nowrap;
+}
+.answer{
+    padding-left: 15px;
 }
