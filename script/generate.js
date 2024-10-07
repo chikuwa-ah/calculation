@@ -53,7 +53,7 @@ const generateFormula = () => {
     } else {
         //case of division
         numbers = outputNumber(maxNumber);
-        while (numbers[0] % numbers[1] != 0 || Math.abs(numbers[1]) === 1 || numbers[0] / numbers[1] === 1) {
+        while (numbers[0] % numbers[1] != 0 || Math.abs(numbers[1]) === 1 || Math.abs(numbers[0] / numbers[1]) === 1) {
             numbers = outputNumber(maxNumber);
         };
     };

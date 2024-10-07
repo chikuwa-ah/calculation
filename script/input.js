@@ -53,10 +53,22 @@ const answerCheck = (resArray, negative, answer) => {
     } else {
         addScore = -20;
     };
+    judgeDisplay(response === answer.num);
     scoreProcess(addScore);
 
     setTimeout(() => {
-
+        resetAnsDisplay();
         generateFormula();
     }, 500);
+};
+
+const judgeDisplay = (correct) => {
+    const ansElement = mainElement.children[1];
+    ansElement.style.color = correct ? '#1dd2c0' : '#f82525';
+};
+
+const resetAnsDisplay = () => {
+    const ansElement = mainElement.children[1];
+    ansElement.style.color = '#000';
+    ansElement.textContent = '';
 };

@@ -7,9 +7,16 @@
     <link rel="stylesheet" href="css/index_style.css">
 </head>
 <body>
-    <div id="timer" class="timer flex">
-        <h1>TIME :</h1>
-        <h1></h1>
+    <div class="allTimer" id="allTimer">
+        <div class="timer">
+            <div id="timer" class="flex">
+                <h1>TIME :</h1>
+                <h1></h1>
+            </div>
+        </div>
+        <div class="barBorder">
+            <div class="bar" id="bar"></div>
+        </div>
     </div>
     <div class="origin">
         <div id="title" class="title">
@@ -18,17 +25,23 @@
                 <h2>START</h2>
             </div>
         </div>
+        <div id="end" class="end title">
+            <h1></h1>
+            <div class="start">
+                <h2 id="endButton">RETURN</h2>
+            </div>
+        </div>
         <div id="main" class="main flex">
             <h1></h1>
             <h1 class="answer"></h1>
         </div>
     </div>
-    <div class="score flex">
-        <div id="score">
-            <h2>SCORE :</h2>
-            <h2></h2>
+    <div class="score">
+        <div id="score" class="flex">
+            <h1>SCORE :</h1>
+            <h1>0</h1>
         </div>
-        <div id="highScore">
+        <div id="highScore" class="flex">
             <h2>HIGHSCORE :</h2>
             <h2>0</h2>
         </div>
@@ -60,6 +73,7 @@
     <script src="./script/timer.js"></script>
     <script src="./script/generate.js"></script>
     <script src="./script/input.js"></script>
+    <script src="./script/end.js"></script>
 
     <script src="test.js"></script>
 </body>

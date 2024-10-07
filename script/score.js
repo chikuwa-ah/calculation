@@ -1,7 +1,7 @@
 'use strict';
 
 const scoreProcess = (score, get, reset) => {
-    const outputScoreElement = scoreElement.children[1];
+    const outputScoreElement = document.getElementById('score').children[1];
     if (reset) {
         outputScoreElement.textContent = '0';
         return;

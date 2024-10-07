@@ -16,22 +16,23 @@ const title = () => {
         setTimeout(() => {
             titleElement.style.display = 'none';
             mainElement.style.display = 'flex';
-            scoreElement.style.display = 'flex';
-            timerElement.style.display = 'flex';
-            scoreProcess(null, false, true);
-            timer(20);
+            timerElement.style.display = 'block';
+            timer(10);
             generateFormula();
         }, 1500);
     }, { once: true });
 };
 
+const displayInit = () => {
+    mainElement.style.display = 'none';
+    timerElement.style.display = 'none';
+    scoreProcess(null, false, true);
+    title();
+};
+
 window.addEventListener('DOMContentLoaded', () => {
     define('mainElement', document.getElementById('main'));
     define('titleElement', document.getElementById('title'));
-    define('scoreElement', document.getElementById('score'));
-    define('timerElement', document.getElementById('timer'));
-    mainElement.style.display = 'none';
-    scoreElement.style.display = 'none';
-    timerElement.style.display = 'none';
-    title();
+    define('timerElement', document.getElementById('allTimer'));
+    displayInit();
 });
